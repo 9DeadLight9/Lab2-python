@@ -59,3 +59,26 @@ for i, (x, y) in enumerate(points, start=1):
         inside_count += 1
         print(f"Точка {chr(80+i-1)} лежить всередині кола.")
 print(f"Кількість точок, що лежать всередині кола: {inside_count}")
+#Tusk4
+def calculate_quadrilateral_area(X, Y, Z, T):
+    triangle_area = 0.5 * X * Y
+    semi_perimeter = (Z + T + (X**2 + Y**2)**0.5) / 2
+    triangle2_area = (semi_perimeter * (semi_perimeter - Z) * (semi_perimeter - T) * (semi_perimeter - (X**2 + Y**2)**0.5)) ** 0.5
+    return triangle_area + triangle2_area
+X = float(input("Введіть довжину сторони X: "))
+Y = float(input("Введіть довжину сторони Y: "))
+Z = float(input("Введіть довжину сторони Z: "))
+T = float(input("Введіть довжину сторони T: "))
+area = calculate_quadrilateral_area(X, Y, Z, T)
+print("Площа чотирикутника: {area}")
+#Tusk5
+def find_numbers(n, nums):
+    result = []
+    for i in range(1, n+1):
+        if all(i % num == 0 for num in nums):
+            result.append(i)
+    return result
+n = int(input("Введіть значення n: "))
+nums = list(map(int, input("Введіть числа, через які має ділитися n (через пробіл): ").split()))
+result = find_numbers(n, nums)
+print(f"Натуральні числа, що не перевищують {n} і діляться на кожне з чисел {nums}: {result}")
